@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # sbml2mod.py
 
-# Updated: 18/2/20
+# Updated: 18/2/21
 
 import sys,io,libsbml,traceback
 
