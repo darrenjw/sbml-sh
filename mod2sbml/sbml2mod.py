@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # sbml2mod.py
 
-# Updated: 2/5/10
+# Updated: 18/2/20
 
-import sys,cStringIO,libsbml,traceback
+import sys,io,libsbml,traceback
 
 __doc__="""sbml2mod version 3.1.1.1
 
@@ -51,7 +51,7 @@ parses SBML model and writes SBML-shorthand to outStream"""
         outS.write('@model:')
         outS.write(str(self.d.getLevel())+'.')
         outS.write(str(self.d.getVersion())+'.')
-	self.mangle=10*self.d.getLevel()+self.d.getVersion()
+        self.mangle=10*self.d.getLevel()+self.d.getVersion()
         outS.write('0='+self.m.getId())
         if (self.m.getName()!=""):
             outS.write(' "'+self.m.getName()+'"')
@@ -278,9 +278,9 @@ parses SBML model and writes SBML-shorthand to outStream"""
                 nea=e.getNumEventAssignments()
                 for eai in range(nea):
                     if (eai>0):
-		    	if (self.mangle>=23):
-			    outS.write('; ')
-			else:
+                        if (self.mangle>=23):
+                            outS.write('; ')
+                        else:
                             outS.write(', ')
                     ea=e.getEventAssignment(eai)
                     outS.write(ea.getVariable()+"=")
@@ -296,7 +296,7 @@ parses SBML model and writes SBML-shorthand to outStream"""
         """parse()
 Parses the SBML model and returns a string containing the
 corresponding SBML-shorthand"""
-        outS=cStringIO.StringIO()
+        outS=io.StringIO()
         self.parseStream(outS)
         return outS.getvalue()
 

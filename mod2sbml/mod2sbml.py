@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # mod2sbml.py
 
-# Updated: 2/5/10
+# Updated: 18/2/21
 
-import libsbml,sys,re,cStringIO,traceback
+import libsbml,sys,re,io,traceback
 
 __doc__="""mod2sbml version 3.1.1.1
 
@@ -63,7 +63,7 @@ and the following public methods:
         """parse(inString)
 parses SBML-shorthand model in inString and returns a libSBML SBMLDocument
 object"""
-        inS=cStringIO.StringIO(inString)
+        inS=io.StringIO(inString)
         return self.parseStream(inS)
 
     def parseStream(self,inS):
@@ -503,10 +503,10 @@ object"""
                 delayMath=libsbml.parseFormula(bits[1])
                 delay.setMath(delayMath)
 	    # SPLIT
-	    if (self.mangle>=230):
-	    	asslist=assignments.split(";")
-	    else:
-	  	asslist=assignments.split(",")
+            if (self.mangle>=230):
+              	asslist=assignments.split(";")
+            else:
+                asslist=assignments.split(",")
             for ass in asslist:
                 bits=ass.split("=")
                 if (len(bits)!=2):
@@ -565,8 +565,8 @@ if __name__=='__main__':
                 sys.stderr.write(sys.argv[1]+'\n')
                 sys.exit(1)
             d=p.parseStream(s)
-        print '<?xml version="1.0" encoding="UTF-8"?>'
-        print d.toSBML()
+        print('<?xml version="1.0" encoding="UTF-8"?>')
+        print(d.toSBML())
     except:
         traceback.print_exc(file=sys.stderr)
         sys.stderr.write('\n\n Unknown parsing error!\n')
