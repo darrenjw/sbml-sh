@@ -19,9 +19,9 @@ def roundtrip(filename):
     p3=mod2sbml.Parser()
     sbmld2=p3.parse(backp)
     if (sbmld1.toSBML()==sbmld2.toSBML()):
-        print "Roundtrip test passed for "+filename
+        print("Roundtrip test passed for "+filename)
     else:
-        print "Test FAILED for "+filename
+        print("Test FAILED for "+filename)
         raise TestFailed
     
 if (__name__=="__main__"):
@@ -37,4 +37,4 @@ if (__name__=="__main__"):
         except:
             sys.stderr.write("Unknown Error!\n")
             sys.exit(1)
-    print "\n\nAll tests passed!\n"
+    print("\n\nAll tests passed!\n")
