@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version3" level="2" version="3">
+  <model id="MichaelisMentenKinetics" name="Michaelis-Menten Kinetics">
+    <listOfCompartments>
+      <compartment id="cell" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Substrate" compartment="cell" initialAmount="1000"/>
+      <species id="Enzyme" compartment="cell" initialAmount="100"/>
+      <species id="Complex" compartment="cell" initialAmount="0"/>
+      <species id="Product" compartment="cell" initialAmount="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="k1" value="1"/>
+      <parameter id="k1r" value="2"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="SubstrateEnzymeBinding" name="Substrate-enzyme binding">
+        <listOfReactants>
+          <speciesReference species="Substrate"/>
+          <speciesReference species="Enzyme"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Complex"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> k1 </ci>
+                <ci> Substrate </ci>
+                <ci> Enzyme </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k1r </ci>
+                <ci> Complex </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Conversion" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Complex"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Product"/>
+          <speciesReference species="Enzyme"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k2 </ci>
+              <ci> Complex </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k2" value="3"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
