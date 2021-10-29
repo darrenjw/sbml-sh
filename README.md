@@ -43,14 +43,12 @@ tool below, this model translates to [this SBML](mm.xml).
 ### Latest SBML-shorthand specification
 
 -   SBML-shorthand specification, version 3.1.1
-    ([PDF](3.1.1.1/sbml-sh.pdf)) - targeted at SBML Level 3, Version 1.
-
-All [previous versions](all.html) are available.
+    ([PDF](spec/sbml-sh.pdf)) - targeted at SBML Level 3, Version 1.
 
 ### mod2sbml.py model translation tool
 
--   [mod2sbml.py](3.1.1.1/mod2sbml.py) code and documentation
-    ([PDF](3.1.1.1/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
+-   [mod2sbml.py](mod2sbml/mod2sbml.py) code and documentation
+    ([PDF](mod2sbml/doc/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
     at SBML-shorthand version 3.1.1, *and all previous versions*.
 
 Note that this translator is written in
@@ -64,7 +62,7 @@ manager.
 
 ### sbml2mod.py
 
--   [sbml2mod.py](3.1.1.1/sbml2mod.py) (version 3.1.1.1) is the reverse
+-   [sbml2mod.py](mod2sbml/sbml2mod.py) (version 3.1.1.1) is the reverse
     translation tool for Level 3, version 1 and all previous versions.
     It requires libsbml (and the libsbml python bindings).
 
