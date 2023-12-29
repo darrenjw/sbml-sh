@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # sbml2latex.py
 
-# Updated: 8/6/07
+# Updated: 29/12/23
 
-import sys,cStringIO,libsbml
+import sys, io, libsbml
 
 __doc__="""sbml2latex version 1.0
 
@@ -45,7 +45,7 @@ parses SBML model and writes LaTeX to outStream"""
         outS.write('@model:')
         outS.write(str(self.d.getLevel())+'.')
         outS.write(str(self.d.getVersion())+'.')
-	self.mangle=10*self.d.getLevel()+self.d.getVersion()
+        self.mangle=10*self.d.getLevel()+self.d.getVersion()
         outS.write('0='+self.m.getId())
         if (self.m.getName()!=""):
             outS.write(' "'+self.m.getName()+'"')
@@ -213,9 +213,9 @@ parses SBML model and writes LaTeX to outStream"""
                 nea=e.getNumEventAssignments()
                 for eai in range(nea):
                     if (eai>0):
-		    	if (self.mangle>=23):
-			    outS.write('; ')
-			else:
+                        if (self.mangle>=23):
+                            outS.write('; ')
+                        else:
                             outS.write(', ')
                     ea=e.getEventAssignment(eai)
                     outS.write(ea.getVariable()+"=")
@@ -231,7 +231,7 @@ parses SBML model and writes LaTeX to outStream"""
         """parse()
 Parses the SBML (L2) model and returns a string containing the
 corresponding LaTeX"""
-        outS=cStringIO.StringIO()
+        outS=io.StringIO()
         self.parseStream(outS)
         return outS.getvalue()
 
