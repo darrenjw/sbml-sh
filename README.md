@@ -34,13 +34,13 @@ model using the shorthand notation.
      Complex -> Product + Enzyme
      k2*Complex : k2=3
 
-You can download this example: [mm.mod](mm.mod). Using the translation
-tool below, this model translates to [this SBML](mm.xml).
+You can download this example: [mm.mod](https://github.com/darrenjw/sbml-sh/blob/master/mm.mod). Using the translation
+tool below, this model translates to [this SBML](https://github.com/darrenjw/sbml-sh/blob/master/mm.xml).
 
 ### Latest SBML-shorthand specification
 
 -   SBML-shorthand specification, version 3.1.1
-    ([PDF](spec/sbml-sh.pdf)) - targeted at SBML Level 3, Version 1.
+    ([PDF](https://github.com/darrenjw/sbml-sh/blob/master/spec/sbml-sh.pdf)) - targeted at SBML Level 3, Version 1.
 
 
 ## Python package containing conversion tools
@@ -52,7 +52,7 @@ pip install sbmlsh
 ### mod2sbml model translation tool
 
 -   mod2sbml documentation
-    ([PDF](doc/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
+    ([PDF](https://github.com/darrenjw/sbml-sh/blob/master/doc/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
     at SBML-shorthand version 3.1.1, *and all previous versions*.
 
 ### sbml2mod

@@ -12,7 +12,7 @@ Python packaging tutorials: https://packaging.python.org/en/latest/tutorials/
 
 From the `docs` folder:
 ```bash
-sphinx-apidoc -o source ../src/smfsb/
+sphinx-apidoc -o source ../src/sbmlsh/
 # to create stubs. Then
 make clean
 make html
