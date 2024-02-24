@@ -1,14 +1,11 @@
-SBML-shorthand
-==============
+# sbmlsh - SBML-shorthand
 
-### mod2sbml.py and sbml2mod.py
-
-This page describes a \"shorthand\" version of [SBML](http://sbml.org/)
+This page describes a "shorthand" version of [SBML](http://sbml.org/)
 that is much easier to read and write by hand than real SBML, together
 with a software tool that translates the shorthand model description to
 real SBML.
 
-It isn\'t really meant as a complete alternative to GUI model-building
+It isn't really meant as a complete alternative to GUI model-building
 tools. It is just a useful tool for rapid building of essential model
 structure. Once the basics are defined, you can translate to SBML and
 load up in the GUI tool of your choice.
