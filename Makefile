@@ -1,25 +1,28 @@
 # Makefile
 
+VERSION=0.0.1
 
-VERSION=3.1.1.1
+FORCE:
+	make install
+	make test
 
-update:
-	svn update
-	svn log|less
+build:
+	python3 -m build
 
-commit:
-	svn commit
-	svn update
-	svn log|less
+install:
+	make build
+	python3 -m pip install ./dist/sbmlsh-$(VERSION).tar.gz
 
-docs:
-	cd spec ; make
-	cd mod2sbml/doc ; make
+test:
+	pytest tests/
 
-web:
-	make docs
-	echo "Installing to version directory $(VERSION)"
-	scp spec/sbml-sh.pdf mod2sbml/doc/mod2sbml.pdf mod2sbml/mod2sbml.py mod2sbml/sbml2mod.py @unix.ncl.ac.uk:public_html/software/sbml-sh/$(VERSION)/
+publish:
+	make build
+	python3 -m twine upload dist/*$(VERSION)*
+
+
+edit:
+	emacs Makefile *.toml *.md src/sbmlsh/*.py tests/*.py &
 
 
 # eof
