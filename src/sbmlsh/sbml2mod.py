@@ -300,8 +300,7 @@ corresponding SBML-shorthand"""
         self.parseStream(outS)
         return outS.getvalue()
 
-
-if __name__=='__main__':
+def main():
     argc=len(sys.argv)
     try:
         if (argc==1):
@@ -325,5 +324,8 @@ if __name__=='__main__':
         sys.exit(1)
 
 
+if __name__=='__main__':
+    main()
+        
 # eof
 

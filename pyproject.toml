@@ -25,3 +25,7 @@ Homepage = "https://github.com/darrenjw/sbml-sh"
 Documentation = "https://sbmlsh.readthedocs.io/"
 Issues = "https://github.com/darrenjw/sbml-sh/issues"
 
+[project.scripts]
+mod2sbml = "sbmlsh.mod2sbml:main"
+sbml2mod = "sbmlsh.sbml2mod:main"
+

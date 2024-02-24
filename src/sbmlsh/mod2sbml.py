@@ -551,7 +551,7 @@ object"""
 
 # if run as a script...
 
-if __name__=='__main__':
+def main():
     p=Parser()
     argc=len(sys.argv)
     try:
@@ -572,3 +572,10 @@ if __name__=='__main__':
         sys.stderr.write('\n\n Unknown parsing error!\n')
         sys.exit(1)
     
+
+if __name__=='__main__':
+    main()
+
+
+    
+# eof
