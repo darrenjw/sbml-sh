@@ -1,6 +1,6 @@
 # Makefile
 
-VERSION=0.0.1
+VERSION=0.0.2
 
 FORCE:
 	make install

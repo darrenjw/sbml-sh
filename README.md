@@ -42,31 +42,29 @@ tool below, this model translates to [this SBML](mm.xml).
 -   SBML-shorthand specification, version 3.1.1
     ([PDF](spec/sbml-sh.pdf)) - targeted at SBML Level 3, Version 1.
 
-### mod2sbml.py model translation tool
 
--   [mod2sbml.py](mod2sbml/mod2sbml.py) code and documentation
+## Python package containing conversion tools
+
+```bash
+pip install sbmlsh
+```
+
+### mod2sbml model translation tool
+
+-   mod2sbml documentation
     ([PDF](doc/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
     at SBML-shorthand version 3.1.1, *and all previous versions*.
 
-Note that this translator is written in
-[Python](http://www.python.org/), so you need a working Python
-environment including [libSBML](http://www.sbml.org/libsbml.html)
-version \>= 5.0.0 and the libSBML Python bindings. See the libSBML
-website for information on installing the libSBML python bindings, but
-note that on many Linux and similar systems it can be as simple as
-installing the `python-libsbml` package with the default OS package
-manager.
+### sbml2mod
 
-### sbml2mod.py
-
--   [sbml2mod.py](mod2sbml/sbml2mod.py) (version 3.1.1.1) is the reverse
+-   sbml2mod (version 3.1.1.1) is the reverse
     translation tool for Level 3, version 1 and all previous versions.
-    It requires libsbml (and the libsbml python bindings).
+
 
 Obviously, as the shorthand specification does not contain all SBML
 features, there is likely to be loss involved. However, there should be
 no semantic loss in the round-trip SBML-sh -\> SBML -\> SBML-sh. ie.
-doing a `mod2sbml.py` conversion followed by a `sbml2mod.py` conversion
+doing a `mod2sbml` conversion followed by a `sbml2mod` conversion
 should get back to a shorthand file that is semantically equivalent to
-the original. `sbml2mod.py` works very similarly to `mod2sbml.py`, so no
-separate documentation should be necessary.
+the original. 
+
