@@ -48,7 +48,7 @@ tool below, this model translates to [this SBML](mm.xml).
 ### mod2sbml.py model translation tool
 
 -   [mod2sbml.py](mod2sbml/mod2sbml.py) code and documentation
-    ([PDF](mod2sbml/doc/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
+    ([PDF](doc/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
     at SBML-shorthand version 3.1.1, *and all previous versions*.
 
 Note that this translator is written in
