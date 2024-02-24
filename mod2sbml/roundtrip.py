@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # roundtrip.py
 
 import sys,mod2sbml,sbml2mod
