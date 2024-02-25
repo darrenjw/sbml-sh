@@ -22,7 +22,7 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/darrenjw/sbml-sh"
-Documentation = "https://sbmlsh.readthedocs.io/"
+Documentation = "https://sbml-sh.readthedocs.io/"
 Issues = "https://github.com/darrenjw/sbml-sh/issues"
 
 [project.scripts]
