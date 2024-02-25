@@ -7,7 +7,7 @@
 \textwidth=6.5in
 \textheight=9.5in
 
-\title{mod2sbml.py, Version 3.1.1.1 --- an SBML-shorthand to SBML
+\title{mod2sbml, Version 3.1.1.1 --- an SBML-shorthand to SBML
 translation tool}
 \author{\href{https://darrenjw.github.io/}{Darren J
 Wilkinson}\\
@@ -21,7 +21,7 @@ email: \href{mailto:darren.j.wilkinson@durham.ac.uk}{\texttt{darren.j.wilkinson@
 \section{Introduction}
 
 This document describes a reference implementation of a SBML-shorthand
-to SBML compiler: \verb$mod2sbml.py$, written in Python. It can be
+to SBML compiler: \verb$mod2sbml$, written in Python. It can be
 used either as a simple command-line translator, or by Python
 programmers as a Python module. The module requires libSBML version
 $\geq$ 4.1.0 (and $<$ 5.0.0)
@@ -33,7 +33,7 @@ does matter which version of libSBML you have installed.
 SBML-shorthand is described in a separate specification document.
 
 There is also a reference implementation of a SBML
-to SBML-shorthand translator (\verb$sbml2mod.py$)
+to SBML-shorthand translator (\verb$sbml2mod$)
 available from the
 SBML-shorthand web site. This works (almost) exactly like \verb$mod2sbml$
 except that the conversion is in the other direction. This document
@@ -42,9 +42,10 @@ therefore serves as documentation for that script too (but see the
 
 \section{Version}
 
-mod2sbml.py has a version number of the form $a.b.c.d$ where $a.b.c$
+\verb$mod2sbml$ has a version number of the form \verb$a.b.c.d$
+where \verb$a.b.c$
 corresponds to the version number of SBML-shorthand that the software
-targets, and $d$ is the version of the software for that
+targets, and \verb$d$ is the version of the software for that
 SBML-shorthand version. So, version 3.1.1.1 is the first version of
 the software aimed at SBML-shorthand version 3.1.1.
 
@@ -53,18 +54,11 @@ the software aimed at SBML-shorthand version 3.1.1.
 Suppose that a SBML-shorthand model is contained in a file called
 \verb$mymodel.mod$ in the current directory. Then either of the commands
 \begin{verbatim}
-% mod2sbml.py < mymodel.mod > mymodel.xml
-% mod2sbml.py mymodel.mod > mymodel.xml
+% mod2sbml < mymodel.mod > mymodel.xml
+% mod2sbml mymodel.mod > mymodel.xml
 \end{verbatim}
 will result in the production of the SBML \verb$mymodel.xml$
-corresponding to the shorthand description in \verb$mymodel.mod$. This
-obviously requires that \verb$mod2sbml.py$ is executable and in the
-current path. If you don't know what that means, putting the
-\verb$mod2sbml.py$ file in the current directory and typing
-\begin{verbatim}
-% python mod2sbml.py mymodel.mod > mymodel.xml
-\end{verbatim}
-should still work.
+corresponding to the shorthand description in \verb$mymodel.mod$.
 
 \section{Python module}
 
@@ -99,7 +93,7 @@ source code...
 
 \begin{tabular}{rl}
 SBML-shorthand & {\small
-\href{http://www.staff.ncl.ac.uk/d.j.wilkinson/software/sbml-sh/}{\url{www.staff.ncl.ac.uk/d.j.wilkinson/software/sbml-sh/}}
+\href{https://github.com/darrenjw/sbml-sh}{\url{https://github.com/darrenjw/sbml-sh}}
 }\\
 SBML & \href{http://sbml.org/}{\url{sbml.org}} \\
 Python & \href{http://www.python.org/}{\url{www.python.org}}
