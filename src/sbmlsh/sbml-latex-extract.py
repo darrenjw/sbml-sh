@@ -2,7 +2,7 @@
 # sbml-latex-extract.py
 # script to extract parts of the output from sbml2latex.py
 
-import sys
+import sys,sbmlsh
 startstring='%%% START '
 endstring='%%% END '
 

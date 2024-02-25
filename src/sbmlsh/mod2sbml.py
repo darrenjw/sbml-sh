@@ -1,15 +1,11 @@
 #!/usr/bin/env python
 # mod2sbml.py
 
-# Updated: 18/2/21
-
 import libsbml,sys,re,io,traceback
 
 __doc__="""mod2sbml version 3.1.1.1
 
-Copyright (C) 2005-2010, Darren J Wilkinson
- d.j.wilkinson@ncl.ac.uk
- http://www.staff.ncl.ac.uk/d.j.wilkinson/
+Copyright (C) 2005-2024, Darren J Wilkinson
 
 Includes modifications by:
   Jeremy Purvis (jep@thefoldingproblem.com)
@@ -17,29 +13,28 @@ Includes modifications by:
   Mark Muldoon (m.muldoon@man.ac.uk)
   Lukas Endler (lukas@ebi.ac.uk)
  
-This is GNU Free Software (General Public License)
-
 Module for parsing SBML-shorthand model files, version 3.1.1,
 and all previous versions
 
 Typical usage:
->>> from mod2sbml import Parser
->>> p=Parser()
+>>> import sbmlsh
+>>> p=mod2sbml.Parser()
 >>> p.parseStream(sys.stdin)
 
 Raises error "ParseError" on a fatal parsing error.
+
 """
 
 ParseError="Parsing error"
 
 class Parser(object):
     """Parser class
-Has constructor:
- Parser()
-and the following public methods:
- parseStream(inStream)
- parse(inString)
-"""
+    Has constructor:
+    Parser()
+    and the following public methods:
+    parseStream(inStream)
+    parse(inString)
+    """
     # context
     SBML=1
     MODEL=2
@@ -62,14 +57,17 @@ and the following public methods:
     def parse(self,inString):
         """parse(inString)
 parses SBML-shorthand model in inString and returns a libSBML SBMLDocument
-object"""
+object
+
+"""
         inS=io.StringIO(inString)
         return self.parseStream(inS)
 
     def parseStream(self,inS):
         """parseStream(inStream)
 parses SBML-shorthand model on inStream and returns a libSBML SBMLDocument
-object"""
+object
+"""
         self.inS=inS
         line=self.inS.readline()
         while (line):

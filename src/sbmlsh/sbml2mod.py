@@ -1,15 +1,11 @@
 #!/usr/bin/python
 # sbml2mod.py
 
-# Updated: 18/2/21
-
 import sys,io,libsbml,traceback
 
 __doc__="""sbml2mod version 3.1.1.1
 
-Copyright (C) 2005-2010, Darren J Wilkinson
- d.j.wilkinson@ncl.ac.uk
- http://www.staff.ncl.ac.uk/d.j.wilkinson/
+Copyright (C) 2005-2024, Darren J Wilkinson
 
 Includes modifications by:
   Jeremy Purvis (jep@thefoldingproblem.com)
@@ -17,12 +13,10 @@ Includes modifications by:
   Mark Muldoon (m.muldoon@man.ac.uk)
   Lukas Endler (lukas@ebi.ac.uk)
  
-This is GNU Free Software (General Public License)
-
 Module for converting SBML to SBML-shorthand model files, version 3.1.1
 Typical usage:
->>> from sbml2mod import Parser
->>> p=Parser(sbmldoc)
+>>> import sbmlsh
+>>> p=sbml2mod.Parser(sbmldoc)
 >>> p.parseStream(sys.stdout)
 
 Raises error "ParseError" on a fatal parsing error.
@@ -33,13 +27,13 @@ ParseError="Parsing error"
 
 class Parser(object):
     """Parser class
-Has constructor:
- Parser(sbmldoc)
-where sbmldoc is a libsbml sbmldocument object,
-and the following public methods:
- parseStream(outStream)
- parse()
-"""
+    Has constructor:
+    Parser(sbmldoc)
+    where sbmldoc is a libsbml sbmldocument object,
+    and the following public methods:
+    parseStream(outStream)
+    parse()
+    """
 
     def __init__(self,d):
         self.d=d
@@ -47,7 +41,8 @@ and the following public methods:
 
     def parseStream(self,outS):
         """parseStream(outStream)
-parses SBML model and writes SBML-shorthand to outStream"""
+        parses SBML model and writes SBML-shorthand to outStream
+        """
         outS.write('@model:')
         outS.write(str(self.d.getLevel())+'.')
         outS.write(str(self.d.getVersion())+'.')
