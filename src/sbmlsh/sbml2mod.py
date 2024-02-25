@@ -55,10 +55,10 @@ class Parser(object):
 
         Examples
         --------
-        import sbmlsh
-        p = mod2sbml.Parser(sbmlDoc)
-        outS = open("myModel.mod", 'w')
-        p.parseStream(outS)
+        >>> import sbmlsh
+        >>> p = mod2sbml.Parser(sbmlDoc)
+        >>> outS = open("myModel.mod", 'w')
+        >>> p.parseStream(outS)
         """
         outS.write('@model:')
         outS.write(str(self.d.getLevel())+'.')
@@ -319,9 +319,9 @@ class Parser(object):
 
         Examples
         --------
-        import sbmlsh
-        p = mod2sbml.Parser(sbmlDoc)
-        sbmlSH = p.parse()
+        >>> import sbmlsh
+        >>> p = mod2sbml.Parser(sbmlDoc)
+        >>> sbmlSH = p.parse()
         """
         outS=io.StringIO()
         self.parseStream(outS)
