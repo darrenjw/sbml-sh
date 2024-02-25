@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to sbmlsh's documentation!
-=================================
+==================================
 
 .. toctree::
    :maxdepth: 2

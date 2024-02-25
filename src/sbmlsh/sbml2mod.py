@@ -35,13 +35,30 @@ class Parser(object):
     parse()
     """
 
-    def __init__(self,d):
+    def __init__(self, d):
         self.d=d
         self.m=d.getModel()
 
-    def parseStream(self,outS):
-        """parseStream(outStream)
-        parses SBML model and writes SBML-shorthand to outStream
+    def parseStream(self, outS):
+        """Convert an SBML document to an SBML-shorthand output stream
+
+        Create and return an SBML-shorthand model as an output stream based on an SBML document.
+
+        Parameters
+        ----------
+        outS : stream
+            Output stream containing a SBML-shorthand model
+
+        Returns
+        -------
+        Nothing.
+
+        Examples
+        --------
+        import sbmlsh
+        p = mod2sbml.Parser(sbmlDoc)
+        outS = open("myModel.mod", 'w')
+        p.parseStream(outS)
         """
         outS.write('@model:')
         outS.write(str(self.d.getLevel())+'.')
@@ -288,9 +305,24 @@ class Parser(object):
 
 
     def parse(self):
-        """parse()
-Parses the SBML model and returns a string containing the
-corresponding SBML-shorthand"""
+        """Convert SBML to SBML-shorthand
+
+        Convert the SBML model to a string containing a model in SBML-shorthand.
+
+        Parameters
+        ----------
+        None.
+
+        Returns
+        -------
+        A string containing SBML-shorthand
+
+        Examples
+        --------
+        import sbmlsh
+        p = mod2sbml.Parser(sbmlDoc)
+        sbmlSH = p.parse()
+        """
         outS=io.StringIO()
         self.parseStream(outS)
         return outS.getvalue()

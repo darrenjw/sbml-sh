@@ -50,24 +50,58 @@ class Parser(object):
     EVENTS=12
 
     def __init__(self):
+        """Constructor for Parser objects
+
+        Create a Parser object for parsing an SBML-shorthand stream
+        """
         self.context=self.SBML
         self.count=1
         self.d=libsbml.SBMLDocument()
 
-    def parse(self,inString):
-        """parse(inString)
-parses SBML-shorthand model in inString and returns a libSBML SBMLDocument
-object
+    def parse(self, inString):
+        """Parse a string containing SBML-shorthand
 
-"""
+        Create an SBML model from a string containing a model in SBML-shorthand.
+
+        Parameters
+        ----------
+        inString : string
+            String containing a SBML-shorthand model
+
+        Returns
+        -------
+        A libSBML SBMLDocument object.
+
+        Examples
+        --------
+        import sbmlsh
+        p = mod2sbml.Parser()
+        sbml = p.parse(inString)
+        """
         inS=io.StringIO(inString)
         return self.parseStream(inS)
 
     def parseStream(self,inS):
-        """parseStream(inStream)
-parses SBML-shorthand model on inStream and returns a libSBML SBMLDocument
-object
-"""
+        """Parse a stream containing SBML-shorthand
+
+        Create an SBML model from a stream containing a model in SBML-shorthand.
+
+        Parameters
+        ----------
+        inS : stream
+            Input stream containing a SBML-shorthand model
+
+        Returns
+        -------
+        A libSBML SBMLDocument object.
+
+        Examples
+        --------
+        import sbmlsh
+        p = mod2sbml.Parser()
+        inS = open("myModel.mod", 'r')
+        sbml = p.parseStream(inS)
+        """
         self.inS=inS
         line=self.inS.readline()
         while (line):
