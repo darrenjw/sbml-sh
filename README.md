@@ -49,13 +49,13 @@ tool below, this model translates to [this SBML](https://github.com/darrenjw/sbm
 pip install sbmlsh
 ```
 
-### mod2sbml model translation tool
+### mod2sbml model translation script
 
 -   mod2sbml documentation
     ([PDF](https://github.com/darrenjw/sbml-sh/blob/master/doc/mod2sbml.pdf)) (version 3.1.1.1), which is targeted
     at SBML-shorthand version 3.1.1, *and all previous versions*.
 
-### sbml2mod
+### sbml2mod reverse translation script
 
 -   sbml2mod (version 3.1.1.1) is the reverse
     translation tool for Level 3, version 1 and all previous versions.
