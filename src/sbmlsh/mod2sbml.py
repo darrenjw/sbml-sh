@@ -113,7 +113,7 @@ class Parser(object):
                 name=bits[1]
             else:
                 name=""
-            line=re.sub("\s","",line) # strip whitespace
+            line=re.sub(r"\s","",line) # strip whitespace
             if (line==""):
                 line=self.inS.readline()
                 self.count+=1
@@ -390,15 +390,15 @@ class Parser(object):
         # "@assign:" and "@rate:" let choose between different kinds of rules
         # this requires the assigned species to have atrribute
         # constant set to "False"
-        if (line[0]=="@" and (not re.match("@(?:rate|assign)\:",line))):
+        if (line[0]=="@" and (not re.match(r"@(?:rate|assign)\:",line))):
             self.handleNewContext(line,name)
         else:
             rule_type=1 # standard set to assignment rule (1)
-            if re.match("@rate\:",line):
+            if re.match(r"@rate\:",line):
                 rule_type=2 # set to rate rule
-            elif re.match("@assign\:",line):
+            elif re.match(r"@assign\:",line):
                 rule_type=1 # set to assignment rule
-            line=re.sub("\@\w+\:","",line) # replace rule declaration if there
+            line=re.sub(r"\@\w+\:","",line) # replace rule declaration if there
             bits=line.split("=")
             if (len(bits)!=2):
                 sys.stderr.write('Error: expected "=" on line ')
@@ -466,7 +466,7 @@ class Parser(object):
         terms=side.split("+")
         for term in terms:
             #split=re.search('\D',term).start()
-            split=re.search('[^\d\.]',term).start()
+            split=re.search(r'[^\d\.]',term).start()
             if (split==0):
                 sto=1.0
             else:
